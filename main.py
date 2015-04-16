@@ -23,6 +23,7 @@ from trap import trap
 from sortSelection import sortSelect #from sort selection file. import sort select class
 from treasureSelectClass import treasureSelect
 from treasureDictionary import dictionary
+from pygeo import Geo
 #MODULES FOR PART 1
 import wikipedia #displays  treasure information
 #MODULES FOR PART 2
@@ -525,12 +526,21 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
             screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
                         
         screen.render() #render
+def locationSelect():
+    geo = Geo("map1")
+    geo.GetsScreenshot()
+    City = city("Usrchoosen", [], True, "map1.png")
+    Treasure = selectTreasure()
+    Treasure, Trap = selectTreasureTrap(City, Treasure)
+    return City, Sort, Treasure, Trap 
+    
 
 
-City, Sort, TreasureList, TrapList = selectMap(mapSelect)
+#city, Sort, TreasureList, TrapList = selectMap(mapSelect)
+city, Sort, TreasureList, TrapList = locationSelect()
 robots = []
-robots = findRobotLocation(City.arena, "Barry", [], [], TreasureList)
-inventory = collectBot(City, robots, TreasureList, TreasureList, TrapList)
+robots = findRobotLocation(city.arena, "Barry", [], [], TreasureList)
+inventory = collectBot(city, robots, TreasureList, TreasureList, TrapList)
 print inventory
 f = open("moduledList.py", 'w')
 f.write("theList = [") 

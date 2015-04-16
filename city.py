@@ -8,8 +8,8 @@ class city():
             self.arena = arena(self.__name, treasuresList, image, False, False)
         else:
             self.arena = arena(self.__name, treasuresList)   #Create a new instance of an arena in the city class.
-            self.__image = self.arena.ret_image_path() 
         print "City setup finished"
+        self.__image = self.arena.ret_image_path() 
 
 
     def ret_image_path(self):

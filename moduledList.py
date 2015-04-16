@@ -1,1 +1,1 @@
-theList = ["Chest","Coins","Diamond","DiamondBlock","EmeraldBlock"]
+theList = ["chest","coins","diamond","diamondblock","emeraldblock","goldbar","goldblock","iron","lapis","lapisblock"]

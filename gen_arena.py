@@ -33,12 +33,13 @@ class arena:        #Class for the arena
             self.__image = image 
             import PIL #import python image lib
             import Image
-        else:
-            image = str(city)+".png"
+
+        import PIL #import python image lib
+        import Image
 
         self.city = city
-        self.full_arena = self.__arena
         self.__arena = None #Array which is the arena. Containing the road values 
+        self.full_arena = self.__arena
         self.__im_arr = None #Array containing all the images for the map.
         self.__full_image = None   #Variable to contain a copy of the map image.
         self.__grid_y = 0          #Variables holding the amount of tiles we can get out of an image.
@@ -53,9 +54,10 @@ class arena:        #Class for the arena
         self.__treasures = []        #List of treasure objects placed on the arena
 #------------------------------------------------------------------------------------------
 
-        __tmp_image = Image.open(self.__image) #get a copy of the image
+        __tmp_image = Image.open(image) #get a copy of the image
         self.__full_image = __tmp_image.convert("RGB") #Convert image to RGB colourspace (Given image from pygeo is in indexed Colour)
         self.__full_image.load() #Reload image to make sure that i saved properly.
+        self.__image = image
 
         im = self.__full_image 
         self.im = self.__full_image 
