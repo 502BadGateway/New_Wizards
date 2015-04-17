@@ -492,8 +492,9 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
     
     #Passes the image of the city as the background. Requires an instance of city to have been created.
     #screen.setCollectorBot(cBot.returnLocationX(), cBot.returnLocationY(), cBot.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
+    resolution = (pygame.display.Info().current_w,pygame.display.Info().current_h)
 
-    screen = display(city.ret_image_path(), 1280, 960)
+    screen = display(city.ret_image_path(), resolution[0],resolution[1])
 
     while True: #While true TODO Add proper clause to quit program
         locY = 0
@@ -532,6 +533,7 @@ def locationSelect():
     geo = Geo("map1")
     geo.GetsScreenshot()
     City = city("Usrchoosen", [], True, "map1.png")
+    Sort = selectSort()
     Treasure = selectTreasure()
     Treasure, Trap = selectTreasureTrap(City, Treasure)
     return City, Sort, Treasure, Trap 
@@ -539,6 +541,7 @@ def locationSelect():
 
 
 #city, Sort, TreasureList, TrapList = selectMap(mapSelect)
+pygame.init()
 city, Sort, TreasureList, TrapList = locationSelect()
 robots = []
 robots = findRobotLocation(city.arena, "Barry", [], [], TreasureList)

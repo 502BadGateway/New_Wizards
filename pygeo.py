@@ -7,6 +7,7 @@ import time
 import webbrowser #I think this is now not needed. I will check later. It opens a URL in users default webbrowser 
 import sys  
 import urllib # this gets the image created by the URL below
+import pygame
 
 
 class Geo(): #main class
@@ -14,6 +15,8 @@ class Geo(): #main class
         self.place1 = raw_input("Please input a location: ") # user imputs there desired location
         self.place2 = Geocoder.geocode(self.place1) # geolocation of inputted location is generated
         self.screenshotName = screenshotName
+        self.resolution = (pygame.display.Info().current_w,pygame.display.Info().current_h)
+        print self.resolution
 
         print (self.place2[0]) # prints out what the geocoder has enterpreted the users input as
         print (self.place2[0].coordinates) # print the geolocation of that location
@@ -30,7 +33,8 @@ class Geo(): #main class
         print self.strUrlExt # prints it out to so i can see it is correct
 
 
-        self.mapsUrl2 = "http://maps.googleapis.com/maps/api/staticmap?center=" + self.strUrlExt + "&zoom=13&size=640x640&scale=2&format=png&sensor=false&maptype=roadmap&style=element:labels|visibility:off"
+        self.mapsUrl2 = "http://maps.googleapis.com/maps/api/staticmap?center=" + self.strUrlExt + "&zoom=16&size="+str(self.resolution[0])+"x"+str(self.resolution[1])+"&scale=2&format=png&sensor=false&maptype=roadmap&style=element:labels|visibility:off"
+        print self.mapsUrl2
         # this is the URL that is used to get the iamge, it is created from concatinating in the geolocation coordinateds that are ceated above
     
     def GetsScreenshot(self): # this method gets the background image from the URL crrated above
