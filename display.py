@@ -9,8 +9,9 @@ class display:      #Class which handles all the display functionality.
     def __init__(self,backgroundImage, screenHeight,screenWidth): #Creates a display 
 
         pygame.init()
-        self.size = screenHeight,screenWidth
-        self.display = pygame.display.set_mode((self.size), pygame.HWSURFACE|pygame.FULLSCREEN)     #Set the screen up
+       #self.size = screenHeight,screenWidth
+        self.size= (pygame.display.Info().current_w,pygame.display.Info().current_h)
+        self.display = pygame.display.set_mode(self.size, pygame.HWSURFACE|pygame.FULLSCREEN)     #Set the screen up
         self.center = (0,0,0,0)                                   #Center of the viewport
 
         #DATA --------------
