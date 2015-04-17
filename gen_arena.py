@@ -49,7 +49,7 @@ class arena:        #Class for the arena
         self.__width = 0
         
         self.color_percentage = 2   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
-        self.tile_size        = 3   #The size of individual tiles. 
+        self.tile_size        = 10   #The size of individual tiles. 
 
         self.__treasures = []        #List of treasure objects placed on the arena
 #------------------------------------------------------------------------------------------
@@ -184,7 +184,7 @@ class arena:        #Class for the arena
 
 
         for x in range(0, col_range):  #Check to of the top ranking colours to see if there is a large amount of road colours in that image
-            if colors[x][1] == (222,225,225) or colors[x][1] == (255,255,255) or colors[x][1] == (254,254,254): #The colour is the white of a road, so make it a road!
+            if colors[x][1] == (222,225,225) or colors[x][1] == (255,255,255) or colors[x][1] == (254,254,254) or colors[x][1] == (251,250,248): #The colour is the white of a road, so make it a road!
                 if colors[x][0] >= percentage:   #Make sure that the number of that colour type is more than what ever percentage of the whole tile
                     print 
                     self.__arena[row][column] = 1

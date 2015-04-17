@@ -392,6 +392,7 @@ def selectTreasureTrap(city, treasureStringList):
     i = 0
     treasureNum = 6 #this may need to be changed depending on what num represent which 
     print treasureStringList
+    print city.arena.show_arena()
 
     grid_sizes = [116,122]
         
@@ -403,6 +404,7 @@ def selectTreasureTrap(city, treasureStringList):
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = event.pos
                 print y,x                         
+                print city.arena.ret_element_value(y/10, x/10)
                 if city.arena.ret_element_value(y/10, x/10) == 1 or city.arena.ret_element_value(y/10, x/10) == 2:
                      print "in loop"
                      city.arena.put(y/10,x/10, treasureNum)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
