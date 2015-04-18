@@ -403,18 +403,26 @@ def selectTreasureTrap(city, treasureStringList):
                 sys.exit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = event.pos
+                print "y, x:"
                 print y,x                         
+                print "Arena value"
                 print city.arena.ret_element_value(y/10, x/10)
                 if city.arena.ret_element_value(y/10, x/10) == 1 or city.arena.ret_element_value(y/10, x/10) == 2:
                      print "in loop"
-                     city.arena.put(y/10,x/10, treasureNum)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
-                     treasureList.append(treasure(y/10,x/10, Trdict.itemList[treasureStringList[0][i].lower()]['arenaVal'], treasureStringList[1][i], 6, "ASSETS/treasures/"+str(treasureStringList[1][i]).lower()+".png"))
+                     city.arena.put(x/10,y/10, treasureNum)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
+                     treasureList.append(treasure(x/10,y/10, Trdict.itemList[treasureStringList[0][i].lower()]['arenaVal'], treasureStringList[1][i], 6, "ASSETS/treasures/"+str(treasureStringList[1][i]).lower()+".png"))
+                     print "arena coords"
+                     print city.arena.ret_element_value(y/10, x/10) 
+                     print "treasure list coords:"
+                     print y/10,x/10
+
+                     
                      treasureNum = treasureNum + 1 #im want to reserve numbers 5 to 19 for treasures 
                      i=i+1
                 else:
                     print "Not a road"
         for treasures in treasureList:
-             displayScreen.setTreasureCollect(treasures.returnLocationX(), treasures.returnLocationY(), treasures.getImage())
+             displayScreen.setTreasureCollect(treasures.returnLocationY(), treasures.returnLocationX(), treasures.getImage())
 
 #places the traps
     j=0
@@ -434,7 +442,7 @@ def selectTreasureTrap(city, treasureStringList):
                 else:
                     print "Not on a road"
         for treasures in treasureList:
-            displayScreen.setTreasureCollect(treasures.returnLocationX(), treasures.returnLocationY(), treasures.getImage())
+            displayScreen.setTreasureCollect(treasures.returnLocationY(), treasures.returnLocationX(), treasures.getImage())
         for traps in trapList:
             displayScreen.setTreasureCollect(traps.returnLocationX(), traps.returnLocationY(), traps.getImage())
     
@@ -501,7 +509,7 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
         for item in Treasure:   #Render the wish list list
             locY += 10
             textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
-            screen.CreateText(textString, (0,locY,0,0), 40)
+            screen.CreateText(textString, (680,locY,0,0), 40)
 
         for item in Traps:
             screen.setTreasureCollect(item.returnLocationX(), item.returnLocationY(), item.getImage())
