@@ -32,7 +32,7 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
             return 
         if treasure.getName() == treasureList[0].getName():
             if self.returnLocationX() -2 <= treasure.returnLocationY() <= self.returnLocationX()+2 and self.returnLocationY()-2 <= treasure.returnLocationX() <=  self.returnLocationY()+2: #If we are, then see if they're in our wishlist
-                print "found treasure"
+                print( "found treasure" )
                 self.__inventory.append(treasure)       #If so then add them to the inventory
                 self.setPoints(1)                     #And add to the score
                 treasure.setCollected(True)
@@ -49,14 +49,14 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
                 break
             if treasure.getName() == items.getName():
                 if self.returnLocationX() -2 <= treasure.returnLocationX() <= self.returnLocationX()+2 and self.returnLocationY()-2 <= treasure.returnLocationY() <=  self.returnLocationY()+2: #If we are, then see if they're in our wishlist
-                    print "You have come across a trap!"
+                    print( "You have come across a trap!" )
                     self.__inventory.pop()
                     self.__points -= 1
 
 
 
     def updateLocation(self, city, arena, bot, target):
-        print "Update Location"
+        print( "Update Location" )
         self.targetX = target[0]
         self.targetY = target[1]
 
@@ -66,23 +66,23 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
 
         if bot.returnLocationY() > self.targetX:
             print bot.returnLocationY() , self.targetX
-            print "1"
+            print( "1" )
             self.moveLeft(arena)
             return
         elif self.returnLocationY() < self.targetX:
             print self.returnLocationY() , self.targetX
-            print "2"
+            print( "2" )
             self.moveRight(arena)
             return
         if self.returnLocationX() > self.targetY:
             print self.returnLocationX() , self.targetY
-            print "3"
+            print( "3" )
             self.moveUp(arena)
             moved = True
             return
         elif self.returnLocationX() < self.targetY:
             print self.returnLocationX() , self.targetY
-            print "4"
+            print( "4" )
             self.moveDown(arena)
             moved = True
             return
@@ -114,7 +114,7 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
 #  print count
 #  time.sleep(1) #sleep for a second
 #
-#print "Time is up!"  
+#print( "Time is up!" )  
 
 
 

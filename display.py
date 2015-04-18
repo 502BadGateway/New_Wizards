@@ -24,7 +24,7 @@ class display:      #Class which handles all the display functionality.
         
         elif backgroundImage == False:
             self.background = pygame.Surface(self.display.get_size())
-            self.backgroundRect = (screenWidth,screenHeight)
+            self.backgroundRect = self.size 
             self.background = self.background.convert()
             self.background.fill((250,250,250))
             self.display.blit(self.background,(0,0))
@@ -87,14 +87,10 @@ class display:      #Class which handles all the display functionality.
     def showPoints(self, font, text, position):
         return
 
-    def render(self, zoom=False):                #Render currently buffered scene
+    def render(self):                #Render currently buffered scene
         if self.State == False:      #If the state is dirty
-
             pygame.display.flip()                                       #Flip buffers.
-            if zoom == True:
-                self.display.blit(self.background, self.backgroundRect, area=(0,0,200,20))     #Blit background
-            else:
-                self.display.blit(self.background, self.backgroundRect )     #Blit background
+            self.display.blit(self.background, (0,0))     #Blit background
 
         self.state = True
         return

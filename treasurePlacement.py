@@ -28,4 +28,4 @@ class treasurePos(mapSelected):
 						treasurePosListY[i] = y
 						i=i+1
 					else:
-						print "Not on road"
+						print( "Not on road" )
