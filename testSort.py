@@ -94,7 +94,7 @@ class sortBot(pygame.sprite.Sprite): #calls sprite base class
 				pygame.display.update() #updates the screen
 				time.sleep(0.001) #go to sleep pygame
 			self.location = self.location - 1 #change the array location
-			print self.location #DEBUG print whut
+			print (self.location) #DEBUG print whut
 		if(self.loaded == True):
 			for i in range(0,14): #moves 140 pixels
 				self.rect.x -= 10 #left 2 pixels
@@ -310,8 +310,8 @@ for i in range(0, len(preObjectList)):
 		treasureList.append(emerald)
 
 	elif(preObjectList[i] == "emeraldblock"):
-		print "ARGGHHHHH"
-		print preObjectList[i]
+		print( "ARGGHHHHH" )
+		print (preObjectList[i])
 		emeraldblock = treasure()
 		emeraldblock.image = pygame.image.load(treasureDict.emeraldblock["image"])
 		emeraldblock.points = treasureDict.emeraldblock["points"]
@@ -366,7 +366,7 @@ for i in range(0, len(preObjectList)):
 		treasureList.append(tiara)
 
 
-print treasureList
+print (treasureList)
 
 for i in treasureList:
 	i.location = treasureList.index(i)

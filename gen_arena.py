@@ -61,7 +61,7 @@ class arena:        #Class for the arena
 
         im = self.__full_image 
         self.im = self.__full_image 
-        print "Size of image:"
+        print( "Size of image:" )
         print self.__full_image.size
         image_size = self.__full_image.size
        
@@ -97,7 +97,7 @@ class arena:        #Class for the arena
         self.__im_arr = [[im for x in range(self.__grid_y)] for x in range(self.__grid_x)]  #We make sure to make each an object of type im (an image from the PIL)
         self.__arena = [[0 for x in range(self.__grid_y)] for x in range(self.__grid_x)]  #We make sure to make each an object of type im (an image from the PIL)
 
-        print "Size of im_arr"
+        print( "Size of im_arr" )
         print len(self.__arena)
 
         left = 0 #Set the initial coordinates
@@ -144,9 +144,9 @@ class arena:        #Class for the arena
         try:
             tmp =  self.__arena[row][column]
         except IndexError:
-            print "Cannot return value for :"+str(row)+str(column)
-            print "Index out of range!"
-            print "Possible that the map image you're analysing does not contain ANY roads"
+            print( "Cannot return value for :" )+str(row)+str(column)
+            print( "Index out of range!" )
+            print( "Possible that the map image you're analysing does not contain ANY roads" )
             quit()
             return 0
         return self.__arena[row][column]
@@ -155,7 +155,7 @@ class arena:        #Class for the arena
         return self.__arena[row][column]
     
     def put(self, start_row, start_col, obj_val):   #Function to insert a given value into a given element.
-        print "called"
+        print( "called" )
         self.__arena[start_row][start_col] = obj_val  #Insert the object value into the starting row for only one element.
         return
     
@@ -202,11 +202,11 @@ class arena:        #Class for the arena
     def show_arena(self):
         inc = 0
         for row in self.__arena:
-            print "Row: "+str(inc),
+            print( "Row: " )+str(inc),
             print row
             inc +=1
-        print "width size:"+str(len(self.__arena[0]))
-        print "Height size:"+str(len(self.__arena))
+        print( "width size:" )+str(len(self.__arena[0]))
+        print( "Height size:" )+str(len(self.__arena))
         return
    
     def save_list(self):
@@ -225,5 +225,5 @@ class arena:        #Class for the arena
          return
 
 #ar = arena("Tokyo",False, True) #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
-#print "---------------------------------------------------------------------------------------------------------"
+#print( "---------------------------------------------------------------------------------------------------------" )
 #ar.show_arena()

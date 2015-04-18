@@ -57,33 +57,33 @@ class mapSelect():
 				#detects which button the user has clicked on
 				elif event.type == pygame.MOUSEBUTTONDOWN: 
 					x, y = event.pos
-					#print "click",x,y
+					#print( "click" ),x,y
 					if  x>30 and x<160 and y>40 and y<140:
-						print "London Clicked"
+						print( "London Clicked" )
 						self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
 						#treasurePos(mapSelected)
 					elif x>190 and x<320 and y>40 and y<140:
-						print "Paris Clicked"
+						print( "Paris Clicked" )
 						mapSelected = "ASSETS\staticmapParis.png"
 						#treasurePos(mapSelected)
 					elif x>350 and x<480 and y>40 and y<140:
-						print "New York Clicked"
+						print( "New York Clicked" )
 						self.mapSelected = "ASSETS\staticmapNewYork.png"
 						#treasurePos(mapSelected)
 					elif x>30 and x<160 and y>180 and y<280:
-						print "Tokyo Clicked"
+						print( "Tokyo Clicked" )
 						self.mapSelected = "ASSETS\staticmapTokyo.png"
 						#treasurePos(mapSelected)
 					elif x>190 and x<320 and y>180 and y<280:
-						print "Johannesburg Clicked"
+						print( "Johannesburg Clicked" )
 						self.mapSelected = "ASSETS\staticmapJohannesburg.png"
 						#treasurePos(mapSelected)
 					elif x>350 and x<480 and y>180 and y<280:
-						print "Berlin Clicked"
+						print( "Berlin Clicked" )
 						self.mapSelected = "ASSETS\staticmapBerlin.png"
 						#treasurePos(mapSelected)
 					else:
-						print "not on button"
+						print( "not on button" )
 
 					
 map1 = mapSelect()

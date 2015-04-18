@@ -19,8 +19,8 @@ def findRobotLocation(ar, name, robotList, targetX, targetY):
     width = ar.ret_size()[0]-1        #Get the width and heights of the array
     height = ar.ret_size()[1]-1
 
-    print "Using width:"+str(width) #dbg
-    print "Using height:"+str(height)
+    print( "Using width:" )+str(width) #dbg
+    print( "Using height:" )+str(height)
     
     placed = False                  #Store if we've placed anything
     x = 0
@@ -28,7 +28,7 @@ def findRobotLocation(ar, name, robotList, targetX, targetY):
 
     while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
         if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
-            print "ROBOT:"
+            print( "ROBOT:" )
             print rand_row, x
             bot = Robot(name, rand_row, x, ar,targetX, targetY)                                    #Create a new robot!
             robotList.append(bot)

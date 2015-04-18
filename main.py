@@ -10,6 +10,7 @@
 #
 #"""
 #ALL PROJECT MODULES
+from __future__ import print_function
 import pygame #We need this to run anything
 #from pygame.locals import * #we need this local so we can run the quit sequence
 import sys #again used to run quick sequence
@@ -29,6 +30,7 @@ import wikipedia #displays  treasure information
 #MODULES FOR PART 2
 import random #needed to choose trap
 import wikipedia
+
 
 def selectSort(): #defines function
     sortScreen= display(False,510,320) #creates display
@@ -50,24 +52,24 @@ def selectSort(): #defines function
             #detects which button the user has clicked on
             elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
                 x, y = event.pos #if this is ^ true then we save location of mouse click
-                #print "click",x,y
+                #print( "click" ),x,y
                 if  x>30 and x<160 and y>40 and y<140: #check to see if we clicked on the button
-                    print "Bubble Sort Selected"
+                    print( "Bubble Sort Selected" )
                     #bubbleSorting = BubbleSorting()
                     return "BubbleSort" #....then we return the sort, in this case bubble sort
 
             elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
                 x, y = event.pos #if this is ^ true then we save location of mouse click
-                #print "click",x,y
+                #print( "click" ),x,y
                 if  x>190 and x<320 and y>40 and y<140: #check to see if we clicked on the button
-                    print "Merge Sort Selected"
+                    print( "Merge Sort Selected" )
                     #mergeSorting = MergeSorting()
                     return "MergeSort" #....then we return the sort, in this case Merge sort
             elif event.type == pygame.MOUSEBUTTONDOWN: #if that doesnt ^ then check to see if any of them is a mouse click
                 x, y = event.pos #if this is ^ true then we save location of mouse click
-                #print "click",x,y
+                #print( "click" ),x,y
                 if  x>350 and x<480 and y>40 and y<140: #check to see if we clicked on the button
-                    print "Insertion Sort Selected"
+                    print( "Insertion Sort Selected" )
                     #insertionSorting = InsertionSorting()
                     return "InsertionSort" #....then we return the sort, in this case Heap sort    
 
@@ -97,9 +99,9 @@ def selectMap(mapSelect):
             #detects which button the user has clicked on
             elif event.type == pygame.MOUSEBUTTONDOWN: 
                 x, y = event.pos
-                #print "click",x,y
+                #print( "click" ),x,y
                 if  x>30 and x<160 and y>40 and y<140:
-                    print "London Clicked"
+                    print( "London Clicked" )
                     City = city("London",[])
                     Sort = selectSort()
                     Treasure = selectTreasure()
@@ -108,7 +110,7 @@ def selectMap(mapSelect):
                     #self.mapSelected = "ASSETS\staticmapLondon.png" # what will be referenced later to know what map to use.
                     #treasurePos(mapSelected)
                 elif x>190 and x<320 and y>40 and y<140:
-                    print "Paris Clicked"
+                    print( "Paris Clicked" )
                     City = city("Paris", [])
                     Sort = selectSort()
                     Treasure = selectTreasure()
@@ -117,7 +119,7 @@ def selectMap(mapSelect):
                     #mapSelected = "ASSETS\staticmapParis.png"
                     #treasurePos(mapSelected)
                 elif x>350 and x<480 and y>40 and y<140:
-                    print "New York Clicked"
+                    print( "New York Clicked" )
                     City = city("NewYork",[]) 
                     Sort = selectSort()
                     Treasure = selectTreasure()
@@ -126,7 +128,7 @@ def selectMap(mapSelect):
                     #self.mapSelected = "ASSETS\staticmapNewYork.png"
                     #treasurePos(mapSelected)
                 elif x>30 and x<160 and y>180 and y<280:
-                    print "Tokyo Clicked"
+                    print( "Tokyo Clicked" )
                     City = city("Tokyo",[])
                     Sort = selectSort
                     Treasure = selectTreasure()
@@ -135,7 +137,7 @@ def selectMap(mapSelect):
                     #self.mapSelected = "ASSETS\staticmapTokyo.png"
                     #treasurePos(mapSelected)
                 elif x>190 and x<320 and y>180 and y<280:
-                    print "Johannesburg Clicked"
+                    print( "Johannesburg Clicked" )
                     City = city("Johannesburg",[])
                     Sort = selectSort()
                     Treasure = selectTreasure()
@@ -144,7 +146,7 @@ def selectMap(mapSelect):
                     #self.mapSelected = "ASSETS\staticmapJohannesburg.png"
                     #treasurePos(mapSelected)
                 elif x>350 and x<480 and y>180 and y<280:
-                    print "Berlin Clicked"
+                    print( "Berlin Clicked" )
                     City = city("Berlin",[])
                     Sort = selectSort()
                     Treasure = selectTreasure()
@@ -153,7 +155,7 @@ def selectMap(mapSelect):
                     #self.mapSelected = "ASSETS\staticmapBerlin.png"
                     #treasurePos(mapSelected)
                 else:
-                    print "not on button"
+                    print( "not on button" )
 
 
 def selectTreasure():
@@ -197,71 +199,71 @@ def selectTreasure():
                         elif event.type == pygame.MOUSEBUTTONDOWN:
                                 x, y = event.pos
                                 if  x>30 and x<160 and y>40 and y<140:
-                                        print "Chest Clicked"
+                                        print( "Chest Clicked" )
                                         i = i + 1
                                         treasureWishList.append("Chest")
                                 elif x>190 and x<320 and y>40 and y<140:
-                                        print "Coins Clicked"
+                                        print( "Coins Clicked" )
                                         i = i + 1
                                         treasureWishList.append("Coins")
                                 elif x>350 and x<480 and y>40 and y<140:
-                                        print "Crown Clicked"
+                                        print( "Crown Clicked" )
                                         i = i + 1
                                         treasureWishList.append("Crown")
                                 elif x>510 and x<640 and y>40 and y<140:
-                                        print "Diamond Clicked"
+                                        print( "Diamond Clicked" )
                                         i = i + 1
                                         treasureWishList.append("Diamond")
                                 elif x>30 and x<160 and y>180 and y<280:
-                                        print "Diamond Block Clicked"
+                                        print( "Diamond Block Clicked" )
                                         i = i + 1
                                         treasureWishList.append("DiamondBlock")
                                 elif x>190 and x<320 and y>180 and y<280:
-                                        print "Emerald Block Clicked"
+                                        print( "Emerald Block Clicked" )
                                         i = i + 1
                                         treasureWishList.append("EmeraldBlock")
                                 elif x>350 and x<480 and y>180 and y<280:
-                                        print "Gold Bar Clicked"
+                                        print( "Gold Bar Clicked" )
                                         i = i + 1
                                         treasureWishList.append("GoldBar")
                                 elif x>510 and x<640 and y>180 and y<280:
-                                        print "Gold Block Clicked"
+                                        print( "Gold Block Clicked" )
                                         i = i + 1
                                         treasureWishList.append("GoldBlock")
                                 elif x>30 and x<160 and y>320 and y<420:
-                                        print "Iron Clicked"
+                                        print( "Iron Clicked" )
                                         i = i + 1
                                         treasureWishList.append("Iron")
                                 elif x>190 and x<320 and y>320 and y<420:
-                                        print "Lapis"
+                                        print( "Lapis" )
                                         i = i + 1
                                         treasureWishList.append("Lapis")
                                 elif x>350 and x<480 and y>320 and y<420:
-                                        print "Lapis Block Clicked"
+                                        print( "Lapis Block Clicked" )
                                         i = i + 1
                                         treasureWishList.append("LapisBlock")
                                 elif x>510 and x<640 and y>320 and y<420:
-                                        print "Ring Clicked"
+                                        print( "Ring Clicked" )
                                         i = i + 1
                                         treasureWishList.append("Ring")
                                 elif x>30 and x<160 and y>460 and y<560:
-                                        print "Sword Clicked"
+                                        print( "Sword Clicked" )
                                         i = i + 1 
                                         treasureWishList.append("Sword")
                                 elif x>190 and x<320 and y>460 and y<560:
-                                        print "Tiara Clicked"
+                                        print( "Tiara Clicked" )
                                         i = i + 1
                                         treasureWishList.append("Tiara")
                                 elif x>350 and x<480 and y>460 and y<560:
-                                        print "Emerald Clicked"
+                                        print( "Emerald Clicked" )
                                         i = i + 1 
                                         treasureWishList.append("Emerald")
                                 else:
-                                        print "not on button"                           
+                                        print( "not on button" )                           
 
 
-        print "got here?"                       
-        print treasureWishList
+        print( "got here?" )                       
+        print( "treasureWishList" )
         return treasureWishList, treasureList
         
 
@@ -310,71 +312,71 @@ def selectTreasureTrap(city):
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = event.pos
                 if  x>30 and x<160 and y>40 and y<140:
-                    print "Chest Clicked"
+                    print( "Chest Clicked" )
                     i = i + 1
                     treasureWishList.append("Chest")
                 elif x>190 and x<320 and y>40 and y<140:
-                    print "Coins Clicked"
+                    print( "Coins Clicked" )
                     i = i + 1
                     treasureWishList.append("Coins")
                 elif x>350 and x<480 and y>40 and y<140:
-                    print "Crown Clicked"
+                    print( "Crown Clicked" )
                     i = i + 1
                     treasureWishList.append("Crown")
                 elif x>510 and x<640 and y>40 and y<140:
-                    print "Diamond Clicked"
+                    print( "Diamond Clicked" )
                     i = i + 1
                     treasureWishList.append("Diamond")
                 elif x>30 and x<160 and y>180 and y<280:
-                    print "Diamond Block Clicked"
+                    print( "Diamond Block Clicked" )
                     i = i + 1
                     treasureWishList.append("DiamondBlock")
                 elif x>190 and x<320 and y>180 and y<280:
-                    print "Emerald Block Clicked"
+                    print( "Emerald Block Clicked" )
                     i = i + 1
                     treasureWishList.append("EmeraldBlock")
                 elif x>350 and x<480 and y>180 and y<280:
-                    print "Gold Bar Clicked"
+                    print( "Gold Bar Clicked" )
                     i = i + 1
                     treasureWishList.append("GoldBar")
                 elif x>510 and x<640 and y>180 and y<280:
-                    print "Gold Block Clicked"
+                    print( "Gold Block Clicked" )
                     i = i + 1
                     treasureWishList.append("GoldBlock")
                 elif x>30 and x<160 and y>320 and y<420:
-                    print "Iron Clicked"
+                    print( "Iron Clicked" )
                     i = i + 1
                     treasureWishList.append("Iron")
                 elif x>190 and x<320 and y>320 and y<420:
-                    print "Lapis"
+                    print( "Lapis" )
                     i = i + 1
                     treasureWishList.append("Lapis")
                 elif x>350 and x<480 and y>320 and y<420:
-                    print "Lapis Block Clicked"
+                    print( "Lapis Block Clicked" )
                     i = i + 1
                     treasureWishList.append("LapisBlock")
                 elif x>510 and x<640 and y>320 and y<420:
-                    print "Ring Clicked"
+                    print( "Ring Clicked" )
                     i = i + 1
                     treasureWishList.append("Ring")
                 elif x>30 and x<160 and y>460 and y<560:
-                    print "Sword Clicked"
+                    print( "Sword Clicked" )
                     i = i + 1 
                     treasureWishList.append("Sword")
                 elif x>190 and x<320 and y>460 and y<560:
-                    print "Tiara Clicked"
+                    print( "Tiara Clicked" )
                     i = i + 1
                     treasureWishList.append("Tiara")
                 elif x>350 and x<480 and y>460 and y<560:
-                    print "Emerald Clicked"
+                    print( "Emerald Clicked" )
                     i = i + 1 
                     treasureWishList.append("Emerald")
                 else:
-                    print "not on button"               
+                    print( "not on button" )               
 
 
-    print "got here?"           
-    print treasureWishList
+    print( "got here?" )           
+    print ( "treasureWishList" )
     return treasureWishList
     
 
@@ -386,13 +388,13 @@ def selectTreasureTrap(city, treasureStringList):
 
     treasureList = []
     trapList = []
-    print len(treasureStringList)
+    print (len(treasureStringList))
 
 #places the treasure
     i = 0
     treasureNum = 6 #this may need to be changed depending on what num represent which 
-    print treasureStringList
-    print city.arena.show_arena()
+    print ("treasureStringList")
+    print (city.arena.show_arena())
 
     grid_sizes = [116,122]
         
@@ -403,24 +405,24 @@ def selectTreasureTrap(city, treasureStringList):
                 sys.exit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = event.pos
-                print "y, x:"
-                print y,x                         
-                print "Arena value"
-                print city.arena.ret_element_value(y/10, x/10)
+                print( "y, x:" )
+                print (y,x)
+                print( "Arena value" )
+                print (city.arena.ret_element_value(y/10, x/10))
                 if city.arena.ret_element_value(y/10, x/10) == 1 or city.arena.ret_element_value(y/10, x/10) == 2:
-                     print "in loop"
+                     print( "in loop" )
                      city.arena.put(x/10,y/10, treasureNum)  #changes the number in the array from a road to the relevant treasure number the treasures will always be placed in the same order, the order they are in arrayNumberReference.txt
                      treasureList.append(treasure(x/10,y/10, Trdict.itemList[treasureStringList[0][i].lower()]['arenaVal'], treasureStringList[1][i], 6, "ASSETS/treasures/"+str(treasureStringList[1][i]).lower()+".png"))
-                     print "arena coords"
-                     print city.arena.ret_element_value(y/10, x/10) 
-                     print "treasure list coords:"
-                     print y/10,x/10
+                     print( "arena coords" )
+                     print (city.arena.ret_element_value(y/10, x/10) )
+                     print( "treasure list coords:" )
+                     print (y/10,x/10)
 
                      
                      treasureNum = treasureNum + 1 #im want to reserve numbers 5 to 19 for treasures 
                      i=i+1
                 else:
-                    print "Not a road"
+                    print( "Not a road" )
         for treasures in treasureList:
              displayScreen.setTreasureCollect(treasures.returnLocationY(), treasures.returnLocationX(), treasures.getImage())
 
@@ -433,14 +435,14 @@ def selectTreasureTrap(city, treasureStringList):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = event.pos
-                print x,y                         
+                print (x,y)                         
                 if (city.arena.ret_element_value(y/10, x/10) == 1 or city.arena.ret_element_value(y/10,x/10) == 2):
                     city.arena.put(y/10,x/10, 10) #might need to be changed, im assuming that 3 is traps
                     trapList.append(trap(y/10,x/10, random.randint(0, 100), "Trap", 8, "ASSETS/treasures/trap.png"))
                     j=j+1
-                    print "Placed road"
+                    print( "Placed road" )
                 else:
-                    print "Not on a road"
+                    print( "Not on a road" )
         for treasures in treasureList:
             displayScreen.setTreasureCollect(treasures.returnLocationY(), treasures.returnLocationX(), treasures.getImage())
         for traps in trapList:
@@ -455,8 +457,8 @@ def findRobotLocation(ar, name, robotList, wishlist, treasureList):
     width = ar.ret_size()[0]-1        #Get the width and heights of the array
     height = ar.ret_size()[1]-1
 
-    print "Using width:"+str(width) #dbg
-    print "Using height:"+str(height)
+    print( "Using width:" +str(width)) #dbg
+    print( "Using height:" +str(height))
     
     placed = False                  #Store if we've placed anything
     x = 0
@@ -464,8 +466,8 @@ def findRobotLocation(ar, name, robotList, wishlist, treasureList):
 
     while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
         if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
-            print "ROBOT:"
-            print rand_row, x
+            print( "ROBOT:" )
+            print (rand_row, x)
             bot = collectorBot(ar, wishlist, treasureList, rand_row/10, x/10)                                    #Create a new robot!
             robotList.append(bot)
             ar.put(rand_row, x, 5)                                                            #Save it in the arena
@@ -520,9 +522,9 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
         for bots in robots:
             if len(Treasure) > 0:
                 collected, treasure = bots.treasureCheck(city.retArena(), Treasure)
-                print collected, treasure
+                print (collected, treasure)
             else:
-                print "Collected all treasures"
+                print( "Collected all treasures" )
                 #Treasure.remove(treasure)
                 Inventory = bots.retInventory()
                 return Inventory
@@ -530,7 +532,7 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
             if collected == True:
                 Treasure.remove(treasure)
             if len(Treasure) == 0:
-                print "collected all treasures"
+                print( "collected all treasures" )
                 break
             screen.CreateText(str(bots.returnPoints()), (200,0,0,0), 0)
             bots.updateLocation(city, city.retArena(), bots, (Treasure[0].returnLocationX(), Treasure[0].returnLocationY()))
@@ -554,7 +556,7 @@ city, Sort, TreasureList, TrapList = locationSelect()
 robots = []
 robots = findRobotLocation(city.arena, "Barry", [], [], TreasureList)
 inventory = collectBot(city, robots, TreasureList, TreasureList, TrapList)
-print inventory
+print (inventory)
 f = open("moduledList.py", 'w')
 f.write("theList = [") 
 count = 0

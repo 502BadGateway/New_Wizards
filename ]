@@ -35,11 +35,11 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
 
     def trapCheck(self, arena, trapLandmark6): #this is a trap check which works in a similar way as the treasure check
       if arena.ret_element_val(self.locationX,self.locationY) == trapLandmark6:
-        print "You have come across a trap!"
+        print( "You have come across a trap!" )
         self.__inventory.pop()
         self.__points -= 1
       else:
-        print "There are no Traps here!"
+        print( "There are no Traps here!" )
 
 
 
@@ -47,21 +47,21 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
         self.targetX = target[0]
         self.targetY = target[1]
         if bot.returnLocationX() > self.targetX:
-            print "1"
+            print( "1" )
             self.moveDown(arena)
             return
 
         elif self.returnLocationX() < self.targetX:
-            print "2"
+            print( "2" )
             self.moveRight(arena)
             return
 
         if self.returnLocationY() > self.targetY:
-            print "3"
+            print( "3" )
             self.moveLeft(arena)
             return
         elif self.returnLocationY() < self.targetY:
-            print "5"
+            print( "5" )
             self.moveRight(arena)
             return
 
@@ -82,7 +82,7 @@ class collectorBot(Robot):      #Class for the collector robot. Inherits from th
 #  print count
 #  time.sleep(1) #sleep for a second
 #
-#print "Time is up!"  
+#print( "Time is up!" )  
 
 
 

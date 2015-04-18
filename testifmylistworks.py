@@ -69,8 +69,8 @@ for i in treasureList:
 	i.location = treasureList.index(i)
 
 print treasureList
-print "NOW FOR LOCATIONS"
+print( "NOW FOR LOCATIONS" )
 
 for i in treasureList:
 
-	print "name: ", i.name, " location: ", i.location
+	print( "name: " ), i.name, " location: ", i.location
