@@ -8,6 +8,16 @@ import inputbox
 
 class display:      #Class which handles all the display functionality.
     def __init__(self,backgroundImage, screenHeight,screenWidth): #Creates a display 
+        if pygame.version.vernum[2] == 2:   #conditional import if pygame freetype is avalible
+            from pygame import freetype
+            def fontInit():
+                pygame.freetype.init()
+                self.defaultFont = pygame.freetype.Font(None, 28)          #
+                
+        else:
+            def fontInit():
+                pygame.font.init()
+                self.defaultFont = pygame.font.Font(None, 28)          #
 
         pygame.init()
        #self.size = screenHeight,screenWidth
@@ -34,11 +44,7 @@ class display:      #Class which handles all the display functionality.
             self.display.blit(self.background,(0,0))
 
         self.State = False
-        pygame.font.init()                              #Initialise fonts
-
-        self.defaultFont = pygame.font.Font(None, 28)          #
-        
-        #self.render()                                   #Call render
+        fontInit()                              #Initialise fonts
 
         return
 
@@ -106,14 +112,18 @@ class display:      #Class which handles all the display functionality.
         self.state = True
         return
 
-    def CreateText(self, landInfo, positionVar, padding):
+    def CreateText(self, landInfo, positionVar, padding, fontsize=15, bg=None):
 
         if padding != 0:
-            positionVar = (positionVar[0]+40, positionVar[1]+40, positionVar[2]+40, positionVar[3]+40)
+            positionVar = (positionVar[0]+padding, positionVar[1]+padding, positionVar[2]+padding, positionVar[3]+padding)
 
         self.state = False
-        textFont = pygame.font.Font(None,15)
-        infoText = textFont.render(str(landInfo),1,(10,10,10))
+        textFont = pygame.font.Font(None,20)
+        if bg != None:
+            infoText = textFont.render(str(landInfo),True,(10,10,10),bg)
+        else:
+            infoText = textFont.render(str(landInfo),True,(10,10,10))
+
         textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
         self.display.blit(infoText, textPos)
     

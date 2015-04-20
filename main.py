@@ -397,6 +397,7 @@ def selectTreasureTrap(city, treasureStringList):
     print (city.arena.show_arena())
 
     grid_sizes = [116,122]
+    textString = "Click on the map to place treasures on roads for the robot to collect!"
         
     while i < 10:
         displayScreen.render()
@@ -424,6 +425,7 @@ def selectTreasureTrap(city, treasureStringList):
                 else:
                     print( "Not a road" )
         for treasures in treasureList:
+             displayScreen.CreateText(textString, (0,10,0,0), 40)
              displayScreen.setTreasureCollect(treasures.returnLocationY(), treasures.returnLocationX(), treasures.getImage())
 
 #places the traps
@@ -509,9 +511,9 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
     while True: #While true TODO Add proper clause to quit program
         locY = 0
         for item in Treasure:   #Render the wish list list
-            locY += 10
+            locY += 20
             textString = str(item.getName())+"    Score"+str(item.returnPoints())+"    Collected: "+str(item.returnCollected())
-            screen.CreateText(textString, (680,locY,0,0), 40)
+            screen.CreateText(textString, (1280,locY,0,0), 80, (255,255,255))
 
         for item in Traps:
             screen.setTreasureCollect(item.returnLocationX(), item.returnLocationY(), item.getImage())
