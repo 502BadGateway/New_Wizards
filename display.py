@@ -18,12 +18,15 @@ class display:      #Class which handles all the display functionality.
         #DATA --------------
         if backgroundImage != False:
             print backgroundImage
-            self.background = pygame.image.load(backgroundImage) #Load the background image 
-            self.backgroundRect = self.background.get_rect() #Get the the background rectangle
+            self.background = pygame.Surface(self.size)
+            self.background.fill((255,255,255))
+            self.image = pygame.image.load(backgroundImage) #Load the background image 
+            self.backgroundRect = self.image.get_rect() #Get the the background rectangle
             self.size = self.background.get_size()          #Get dimentions of the window
             self.__screenDimentions = (screenHeight,screenWidth)
         
         elif backgroundImage == False:
+            self.image = pygame.Surface(self.display.get_size())
             self.background = pygame.Surface(self.display.get_size())
             self.backgroundRect = self.size 
             self.background = self.background.convert()
@@ -97,6 +100,7 @@ class display:      #Class which handles all the display functionality.
     def render(self):                #Render currently buffered scene
         if self.State == False:      #If the state is dirty
             pygame.display.flip()                                       #Flip buffers.
+            self.background.blit(self.image,(0,0))
             self.display.blit(self.background, (0,0))     #Blit background
 
         self.state = True
