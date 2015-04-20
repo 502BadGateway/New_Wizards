@@ -8,11 +8,13 @@ import webbrowser #I think this is now not needed. I will check later. It opens 
 import sys  
 import urllib # this gets the image created by the URL below
 import pygame
+import inputbox
 
 
 class Geo(): #main class
     def __init__(self,screenshotName): # main method
-        self.place1 = raw_input("Please input a location: ") # user imputs there desired location
+        screen = pygame.display.set_mode((640,480), pygame.FULLSCREEN)
+        self.place1 = inputbox.ask(screen, 'Location')
         self.place2 = Geocoder.geocode(self.place1) # geolocation of inputted location is generated
         self.screenshotName = screenshotName
         self.resolution = (pygame.display.Info().current_w,pygame.display.Info().current_h)
