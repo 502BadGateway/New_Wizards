@@ -536,7 +536,7 @@ def collectBot(city, robots, wishlist, Treasure, Traps):
             if len(Treasure) == 0:
                 print( "collected all treasures" )
                 break
-            screen.CreateText(str(bots.returnPoints()), (200,0,0,0), 0)
+            screen.CreateText(str("Robot Score: "+str(bots.returnPoints())), (1280,0,0,0), 40, 30, (255,255,255))
             bots.updateLocation(city, city.retArena(), bots, (Treasure[0].returnLocationX(), Treasure[0].returnLocationY()))
             screen.setCollectorBot(bots.returnLocationX(),bots.returnLocationY(), bots.returnImage()) #Set the location for the collector bot. Requires a location of a new bot to have been specified.
                         
