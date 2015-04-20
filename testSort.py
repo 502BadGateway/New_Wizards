@@ -36,7 +36,7 @@ from treasureDictionary import dictionary
 
 pygame.init()
 treasureDict = dictionary()
-screen = pygame.display.set_mode((1280,720))
+screen = pygame.display.set_mode((1280,720), pygame.HWSURFACE|pygame.FULLSCREEN)
 pygame.display.set_caption("Sort Bot")
 background = pygame.image.load('ASSETS/sortBackground.png')
 screen.blit(background, (0,0))
