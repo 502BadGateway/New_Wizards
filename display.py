@@ -1,5 +1,6 @@
 import pygame
 import wikipedia
+import inputbox
 
 #Creates display and handles all the functionality of drawing to the display.
 #Functions get given data from other displayable objects 
@@ -82,6 +83,12 @@ class display:      #Class which handles all the display functionality.
         self.display.blit(treasure_image, (y*10, x*10))
         self.State = False
         return
+
+
+    def textInput(self,prompt):
+        text = inputbox.ask(self.display, prompt)
+        return text
+
 
 
     def showPoints(self, font, text, position):
