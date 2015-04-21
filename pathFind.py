@@ -40,14 +40,10 @@ class djistras:
     def coords_to_node(self,y, x): 
         y+=1
         x+=1
-        print "x: "+str(x)+" y: "+str(y)
-        print "("+str(x)+"-1)*"+str(self.row_length)+"+"+str(y)
-        print self.arenainst.ret_size()
         if y == 0 or y == 1:
             node = x
         else:
             node = (y-1)*self.arenainst.ret_size()[0]+x
-        print node
         return node
 
     def find_connected(self, arena, x, y,  maxX, maxY):
