@@ -38,12 +38,15 @@ class djistras:
 
 
     def coords_to_node(self,y, x): 
-        print y,x
+        y+=1
+        x+=1
+        print "x: "+str(x)+" y: "+str(y)
+        print "("+str(x)+"-1)*"+str(self.row_length)+"+"+str(y)
+        print self.arenainst.ret_size()
         if y == 0 or y == 1:
-            print "wtf"
             node = x
         else:
-            node = (y-1)*self.row_length+x
+            node = (y-1)*self.arenainst.ret_size()[0]+x
         print node
         return node
 
