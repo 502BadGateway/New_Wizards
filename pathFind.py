@@ -6,6 +6,9 @@ class node:
         self.value = value
         self.coords = coords
         self.connected = connected
+        self.visited == False
+        self.dist = []
+        self.prev = None
 
 
 
@@ -31,8 +34,30 @@ class djistras:
             x += 1
 
         for nd in graph:
-            pass
+            print nd.value
+            print nd.connected
         return graph
+
+
+    def doPath(self, arena, targets):
+
+        distance_source = [0]
+        prev = []
+        unvisitedNodes = self.graph
+
+        for nodes in self.graph:
+            if node.checked == False:
+                node.dist = []
+                node.prev = None
+
+        while len(unvisitedNodes) != 0:
+            node = unvisitedNodes[0]    #Get the node
+            unvisitedNodes.pop([1])     #remove it
+            for items in node.conn:
+                if item.coords = target
+                nodeValue = self.coords_to_node(item[0],item[1])    #get the node value
+                self.graph[nodeValue].prev = node                   #register previous as being this one
+                self.graph[nodeValue].dist += 1                     #Set value to be 1
 
 
 
